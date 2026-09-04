@@ -5,13 +5,14 @@
   - Spacing: use the scale below instead of introducing one-off spacing values.
 */
 :root {
-  --color-background: #f6f1f2;
-  --color-background-alt: #f9f6f7;
+  --color-background: #fffdf4;
   --color-surface: rgba(255, 255, 255, 0.82);
   --color-surface-strong: #ffffff;
   --color-white: #ffffff;
-  --color-text: #43546d;
-  --color-text-alt: #60718a;
+  --color-text: #5f7684;
+  --color-text-alt: #647760;
+  --color-text-muted: #60718a;
+  --color-text-preview: var(--color-text);
   --color-line: rgba(67, 84, 109, 0.14);
   --color-accent: #8ea4bb;
   --color-accent-strong: #43546d;
@@ -75,10 +76,12 @@ body {
   font-family: var(--font-family-body);
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
-  color: var(--color-text);
-  background:
-    radial-gradient(circle at top, rgba(234, 215, 215, 0.7), transparent 32%),
-    linear-gradient(180deg, var(--color-background-alt) 0%, var(--color-background) 30%, var(--color-accent-soft) 100%);
+  color: var(--color-text-preview);
+  background-color: var(--color-background);
+}
+
+body.theme-text-alt {
+  --color-text-preview: var(--color-text-alt);
 }
 
 img,
@@ -126,6 +129,26 @@ select {
   backdrop-filter: blur(12px);
   background: linear-gradient(135deg, #8ea4bb 0%, #b7bec8 100%);
   border-bottom: 1px solid rgba(67, 84, 109, 0.12);
+}
+
+.theme-toggle {
+  align-self: start;
+  min-height: 2.5rem;
+  padding: var(--space-2xs) var(--space-sm);
+  border: 1px solid rgba(67, 84, 109, 0.3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--color-text-preview);
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background: var(--color-surface-strong);
+}
+
+.theme-toggle:focus-visible {
+  outline: 0.1875rem solid var(--color-accent-strong);
+  outline-offset: 0.125rem;
 }
 
 .header-inner {
@@ -272,7 +295,7 @@ select {
 .detail-panel p,
 .info-card p,
 .rsvp-panel p {
-  color: var(--color-text-alt);
+  color: var(--color-text-muted);
 }
 
 .eyebrow,
@@ -358,7 +381,7 @@ select {
 
 .footer-inner {
   align-items: start;
-  color: var(--color-text-alt);
+  color: var(--color-text-muted);
 }
 
 @media (min-width: 48rem) {
@@ -370,6 +393,10 @@ select {
 
   .site-nav {
     overflow: visible;
+  }
+
+  .theme-toggle {
+    align-self: center;
   }
 
   .nav-list > li {

@@ -21,3 +21,10 @@
 - Keep content easy to personalize: do not hardcode fictional wedding logistics unless the issue explicitly asks for them.
 - Reuse shared design tokens and spacing patterns instead of introducing one-off values.
 - Add JavaScript only when a feature truly needs behavior; static content and layout should stay simple.
+
+## Documentation guidance
+
+- Keep `README.md` user-facing and focused on project overview plus setup/run basics.
+- Put development-only checks (for example contrast verification commands) in contributor-focused docs such as `CONTRIBUTING.md` or `docs/accessibility.md`.
+- If a development-only check is important for day-to-day work, keep only a brief pointer in `README.md` and link to the full instructions in the contributor docs.
+

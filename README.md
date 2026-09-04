@@ -13,6 +13,7 @@ The project now uses Vite for local development and production builds while keep
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml
 ├── styles.css
+├── theme-preview.js
 ├── README.md
 └── LICENSE
 ```
@@ -58,12 +59,12 @@ The source of truth for design tokens lives in `styles.css` under the top-level 
 Use these variables to update the palette site-wide:
 
 - `--color-background`
-- `--color-background-alt`
 - `--color-surface`
 - `--color-surface-strong`
 - `--color-white`
 - `--color-text`
 - `--color-text-alt`
+- `--color-text-muted`
 - `--color-line`
 - `--color-accent`
 - `--color-accent-strong`
@@ -106,6 +107,25 @@ Shared layout-related variables:
 - `--radius-large`
 - `--radius-medium`
 - `--shadow-soft`
+
+## Theme preview
+
+- Default text color token: `--color-text`
+- Alternate text color token: `--color-text-alt`
+- Use the header toggle button to switch between them during development.
+- You can also force a mode using query params:
+  - `?textColor=default`
+  - `?textColor=alt`
+
+The toggle preference is stored in `localStorage` with key `wedding-text-theme`.
+
+## Contrast check
+
+For development-time contrast verification (method + command), see `docs/accessibility.md`.
+
+## Updating the background later
+
+When invitation colors are finalized, change only `--color-background` in `styles.css` to a new white/ivory tone. That single variable controls the page background.
 
 ## Notes
 
