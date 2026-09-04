@@ -1,20 +1,54 @@
+/*
+  Design tokens
+  - Colors: update these variables to refresh the palette site-wide.
+  - Typography: shared font families, sizes, and line-heights live here.
+  - Spacing: use the scale below instead of introducing one-off spacing values.
+*/
 :root {
   --color-background: #f6f1f2;
+  --color-background-alt: #f9f6f7;
   --color-surface: rgba(255, 255, 255, 0.82);
   --color-surface-strong: #ffffff;
+  --color-white: #ffffff;
   --color-text: #43546d;
-  --color-muted: #60718a;
+  --color-text-alt: #60718a;
   --color-line: rgba(67, 84, 109, 0.14);
   --color-accent: #8ea4bb;
   --color-accent-strong: #43546d;
   --color-accent-soft: #d9c8cc;
   --color-panel-soft: #b7bec8;
   --color-blush: #ead7d7;
+  --font-family-body: "Inter", sans-serif;
+  --font-family-display: "Cormorant Garamond", serif;
+  --font-size-body: 1rem;
+  --font-size-ui: 0.9rem;
+  --font-size-eyebrow: 0.85rem;
+  --font-size-card-title: 1.2rem;
+  --font-size-brand: clamp(1.7rem, 8vw, 2.6rem);
+  --font-size-hero: clamp(2.3rem, 11vw, 4.75rem);
+  --font-size-section: clamp(1.9rem, 8vw, 3.5rem);
+  --font-size-highlight: clamp(1.8rem, 7vw, 2.5rem);
+  --line-height-body: 1.6;
+  --line-height-tight: 1.05;
+  --letter-spacing-eyebrow: 0.12em;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-section: clamp(4rem, 9vw, 6rem);
+  --space-panel: clamp(1.5rem, 6vw, 3rem);
+  --container-inline-padding: 1rem;
+  --container-inline-padding-wide: 2rem;
   --shadow-soft: 0 1.25rem 3rem rgba(67, 84, 109, 0.08);
   --radius-large: 1.75rem;
   --radius-medium: 1rem;
   --header-offset: clamp(5.5rem, 12vw, 7.5rem);
   --max-width: 80rem;
+  /* Documentation only: keep these in sync with the hardcoded @media values below. */
+  --breakpoint-tablet: 48rem;
+  --breakpoint-desktop: 80rem;
 }
 
 *,
@@ -24,6 +58,7 @@
 }
 
 html {
+  -webkit-text-size-adjust: 100%;
   scroll-behavior: auto;
   scroll-padding-top: var(--header-offset);
 }
@@ -35,17 +70,19 @@ html {
 }
 
 body {
+  min-height: 100vh;
   margin: 0;
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   color: var(--color-text);
   background:
     radial-gradient(circle at top, rgba(234, 215, 215, 0.7), transparent 32%),
-    linear-gradient(180deg, #f9f6f7 0%, var(--color-background) 30%, var(--color-accent-soft) 100%);
+    linear-gradient(180deg, var(--color-background-alt) 0%, var(--color-background) 30%, var(--color-accent-soft) 100%);
 }
 
-img {
+img,
+picture {
   max-width: 100%;
   display: block;
 }
@@ -54,23 +91,30 @@ a {
   color: inherit;
 }
 
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
 .skip-link {
   position: absolute;
-  left: 1rem;
-  top: -3rem;
-  padding: 0.75rem 1rem;
+  left: var(--space-sm);
+  top: calc(var(--space-xl) * -1);
+  padding: var(--space-xs) var(--space-sm);
   border-radius: 999px;
   background: var(--color-accent-strong);
-  color: #fff;
+  color: var(--color-white);
   z-index: 100;
 }
 
 .skip-link:focus {
-  top: 1rem;
+  top: var(--space-sm);
 }
 
 .container {
-  width: min(calc(100% - 2rem), var(--max-width));
+  width: min(calc(100% - (var(--container-inline-padding) * 2)), var(--max-width));
   margin: 0 auto;
 }
 
@@ -87,21 +131,21 @@ a {
 .header-inner {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--space-xs);
   padding: 0.85rem 0 1rem;
 }
 
 .brand {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(1.7rem, 8vw, 2.6rem);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-brand);
   font-weight: 600;
   text-decoration: none;
   line-height: 1;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .brand span {
-  color: #fff;
+  color: var(--color-white);
 }
 
 .eyebrow,
@@ -117,14 +161,14 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5rem;
+  gap: var(--space-2xs);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .nav-list > li {
-  flex: 1 1 calc(50% - 0.5rem);
+  flex: 1 1 calc(50% - var(--space-2xs));
   min-width: 5rem;
 }
 
@@ -138,11 +182,11 @@ a {
   border-radius: 999px;
   text-decoration: none;
   transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
-  font-size: 0.9rem;
+  font-size: var(--font-size-ui);
 }
 
 .nav-list a {
-  color: #fff;
+  color: var(--color-white);
   background: rgba(67, 84, 109, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.28);
   width: 100%;
@@ -176,7 +220,7 @@ a {
 
 .hero,
 .section {
-  padding: clamp(4rem, 9vw, 6rem) 0;
+  padding: var(--space-section) 0;
 }
 
 .hero-grid,
@@ -186,7 +230,7 @@ a {
 .footer-inner,
 .rsvp-panel {
   display: grid;
-  gap: 1.5rem;
+  gap: var(--space-md);
 }
 
 .hero-copy,
@@ -203,23 +247,23 @@ a {
 .hero-card,
 .info-card,
 .detail-panel {
-  padding: 1.5rem;
+  padding: var(--space-md);
   border-radius: var(--radius-large);
 }
 
 .hero-copy h1,
 .section h2 {
   margin: 0.25rem 0 1rem;
-  font-family: "Cormorant Garamond", serif;
-  line-height: 1.05;
+  font-family: var(--font-family-display);
+  line-height: var(--line-height-tight);
 }
 
 .hero-copy h1 {
-  font-size: clamp(2.3rem, 11vw, 4.75rem);
+  font-size: var(--font-size-hero);
 }
 
 .section h2 {
-  font-size: clamp(1.9rem, 8vw, 3.5rem);
+  font-size: var(--font-size-section);
 }
 
 .hero-text,
@@ -228,23 +272,23 @@ a {
 .detail-panel p,
 .info-card p,
 .rsvp-panel p {
-  color: var(--color-muted);
+  color: var(--color-text-alt);
 }
 
 .eyebrow,
 .card-label {
   margin: 0;
-  font-size: 0.85rem;
+  font-size: var(--font-size-eyebrow);
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--letter-spacing-eyebrow);
   text-transform: uppercase;
 }
 
 .hero-actions {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
 }
 
 .button {
@@ -254,7 +298,7 @@ a {
 
 .button-primary {
   background: var(--color-accent-strong);
-  color: #fff;
+  color: var(--color-white);
 }
 
 .button-secondary {
@@ -265,8 +309,8 @@ a {
 .card-value,
 .site-footer p:first-child {
   margin: 0.4rem 0 0;
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(1.8rem, 7vw, 2.5rem);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-highlight);
   font-weight: 700;
 }
 
@@ -287,7 +331,7 @@ a {
 
 .card-grid,
 .details-grid {
-  margin-top: 2rem;
+  margin-top: var(--space-lg);
 }
 
 .info-card,
@@ -299,22 +343,22 @@ a {
 .info-card h3,
 .detail-panel h3 {
   margin-top: 0;
-  margin-bottom: 0.75rem;
-  font-size: 1.2rem;
+  margin-bottom: var(--space-xs);
+  font-size: var(--font-size-card-title);
 }
 
 .rsvp-panel {
-  padding: clamp(1.5rem, 6vw, 3rem);
+  padding: var(--space-panel);
   border-radius: calc(var(--radius-large) + 0.5rem);
 }
 
 .site-footer {
-  padding: 2rem 0 3rem;
+  padding: var(--space-lg) 0 var(--space-xl);
 }
 
 .footer-inner {
   align-items: start;
-  color: var(--color-muted);
+  color: var(--color-text-alt);
 }
 
 @media (min-width: 48rem) {
@@ -366,7 +410,7 @@ a {
 
 @media (min-width: 80rem) {
   .container {
-    width: min(calc(100% - 4rem), var(--max-width));
+    width: min(calc(100% - (var(--container-inline-padding-wide) * 2)), var(--max-width));
   }
 
   .hero-grid {
