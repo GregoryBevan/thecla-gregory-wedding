@@ -1,4 +1,4 @@
-# Gregory & Thecla wedding website
+# Grégory & Thecla wedding website
 
 A static, mobile-first wedding website scaffold with shared design tokens for color, typography, spacing, and layout.
 
@@ -12,7 +12,9 @@ The project now uses Vite for local development and production builds while keep
 ├── package.json
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml
-├── styles.css
+├── assets/
+│   ├── styles.css
+│   └── ...
 ├── theme-preview.js
 ├── README.md
 └── LICENSE
@@ -52,7 +54,7 @@ Vite will print the local URL to open in your browser, typically something like:
 
 ## Design tokens
 
-The source of truth for design tokens lives in `styles.css` under the top-level `:root` block.
+The source of truth for design tokens lives in `assets/styles.css` under the top-level `:root` block.
 
 ### Color tokens
 
@@ -112,12 +114,23 @@ Shared layout-related variables:
 
 - Default text color token: `--color-text`
 - Alternate text color token: `--color-text-alt`
-- Use the header toggle button to switch between them during development.
-- You can also force a mode using query params:
+- Preview modes are available through query params:
   - `?textColor=default`
   - `?textColor=alt`
 
-The toggle preference is stored in `localStorage` with key `wedding-text-theme`.
+
+## Viewport frame
+
+- The default frame style is `frame-style-ornate` on the `<body>` element.
+- An alternate candidate style is available as `frame-style-minimal`.
+- To preview the alternate candidate without editing markup, use:
+  - `?frameStyle=minimal`
+  - `?frameStyle=ornate`
+- The frame is CSS-only (fixed pseudo-elements) to avoid extra asset requests.
+
+## Tile corner motif
+
+- Decorative tile corners use the default `petal fan` motif.
 
 ## Contrast check
 
@@ -125,13 +138,13 @@ For development-time contrast verification (method + command), see `docs/accessi
 
 ## Updating the background later
 
-When invitation colors are finalized, change only `--color-background` in `styles.css` to a new white/ivory tone. That single variable controls the page background.
+When invitation colors are finalized, change only `--color-background` in `assets/styles.css` to a new white/ivory tone. That single variable controls the page background.
 
 ## Notes
 
 - The site is built mobile-first, with progressive enhancement for tablet and desktop breakpoints.
 - Vite is used only for developer ergonomics and build/preview commands; the site remains a simple static HTML and CSS project.
-- If you want to change the overall look later, start with the token values in `styles.css` instead of editing component rules one by one.
+- If you want to change the overall look later, start with the token values in `assets/styles.css` instead of editing component rules one by one.
 
 
 
