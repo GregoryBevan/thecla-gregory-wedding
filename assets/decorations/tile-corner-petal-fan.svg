@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="petalA" x1="160" y1="0" x2="86" y2="74" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5f7684" stop-opacity="0.24" />
+      <stop offset="1" stop-color="#5f7684" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="petalB" x1="160" y1="12" x2="98" y2="86" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5f7684" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#5f7684" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <path d="M160 0C160 38 129 70 91 70C91 31 121 0 160 0Z" fill="url(#petalA)" />
+  <path d="M160 10C160 48 130 79 92 79C92 41 122 10 160 10Z" fill="url(#petalB)" />
+  <path d="M160 0C160 54 116 98 62 98" stroke="#5f7684" stroke-opacity="0.22" stroke-width="1.6" />
+</svg>
+

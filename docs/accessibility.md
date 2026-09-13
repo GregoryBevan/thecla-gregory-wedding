@@ -12,7 +12,7 @@ For normal body text, target WCAG AA `>= 4.5:1`.
 python3 - <<'PY'
 from pathlib import Path
 
-css = Path("styles.css").read_text(encoding="utf-8")
+css = Path("assets/styles.css").read_text(encoding="utf-8")
 
 tokens = {}
 for raw_line in css.splitlines():
