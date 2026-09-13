@@ -1,0 +1,158 @@
+.font-preview-page {
+  color: var(--color-text);
+}
+
+.font-preview-header {
+  position: static;
+  min-height: auto;
+}
+
+.font-preview-header-inner {
+  width: min(calc(100% - (var(--container-inline-padding) * 2)), 52rem);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 8vw, 4.5rem) 0 clamp(2rem, 6vw, 3.25rem);
+  text-align: center;
+}
+
+.font-preview-eyebrow {
+  margin: 0 0 var(--space-xs);
+  color: var(--color-header-text);
+  font-size: var(--font-size-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+}
+
+.font-preview-title {
+  margin: 0;
+  font-family: var(--font-family-display);
+  font-size: clamp(2.4rem, 9vw, 4.8rem);
+  line-height: 0.96;
+  color: var(--color-surface-strong);
+}
+
+.font-preview-intro {
+  width: min(100%, 38rem);
+  margin: var(--space-sm) auto 0;
+  color: rgba(252, 252, 248, 0.92);
+}
+
+.font-preview-main {
+  padding-bottom: var(--space-xl);
+}
+
+.font-preview-stack {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.font-card-grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.font-card,
+.font-recommendation-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-panel);
+}
+
+.font-card-featured {
+  border-color: rgba(92, 108, 99, 0.3);
+  background: linear-gradient(180deg, rgba(252, 252, 248, 0.98), rgba(245, 247, 242, 0.92));
+}
+
+.font-card h3 {
+  margin: 0;
+  font-family: var(--font-family-display);
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  line-height: 1.1;
+}
+
+.font-card-label {
+  margin: 0 0 var(--space-2xs);
+  color: var(--color-accent-strong);
+  font-size: var(--font-size-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+}
+
+.font-card-copy {
+  color: var(--color-text-muted);
+}
+
+.font-card-copy p:first-child {
+  margin-top: 0;
+}
+
+.font-card-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.font-sample {
+  margin: var(--space-sm) 0;
+  font-size: clamp(2.8rem, 12vw, 5rem);
+  line-height: 0.92;
+  color: var(--color-accent-strong);
+  overflow-wrap: anywhere;
+}
+
+.font-sample-large {
+  font-size: clamp(3.3rem, 13vw, 5.8rem);
+}
+
+.font-sample-italianno {
+  font-family: "Italianno", "Great Vibes", cursive;
+}
+
+.font-sample-allura {
+  font-family: "Allura", "Great Vibes", cursive;
+}
+
+.font-sample-qwitcher {
+  font-family: "Qwitcher Grypen", "Great Vibes", cursive;
+  font-weight: 400;
+}
+
+.font-sample-parisienne {
+  font-family: "Parisienne", "Great Vibes", cursive;
+}
+
+.font-sample-great-vibes {
+  font-family: "Great Vibes", cursive;
+}
+
+.font-recommendation-panel {
+  display: grid;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+@media (min-width: 48rem) {
+  .font-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 72rem) {
+  .font-preview-header-inner {
+    padding-top: clamp(3rem, 7vw, 5rem);
+  }
+
+  .font-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .font-card-featured {
+    grid-column: span 2;
+  }
+
+  .font-recommendation-panel {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  }
+}
+

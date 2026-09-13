@@ -74,6 +74,8 @@ Use these variables to update the palette site-wide:
 - `--color-panel-soft`
 - `--color-blush`
 
+For contributor-facing notes on the current invitation-inspired palette, see `docs/color-palette.md`.
+
 ### Typography tokens
 
 Shared type choices are also defined in `:root`:
