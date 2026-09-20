@@ -11,6 +11,7 @@ For normal body text, target WCAG AA `>= 4.5:1`.
 ```zsh
 python3 - <<'PY'
 from pathlib import Path
+import re
 
 css = Path("assets/styles.css").read_text(encoding="utf-8")
 
@@ -22,10 +23,21 @@ for raw_line in css.splitlines():
     name, value = line.split(":", 1)
     tokens[name.strip()] = value[:-1].strip()
 
-def token(name):
+def resolve_token(name, depth=0):
+    """Recursively resolve CSS variable references."""
+    if depth > 10:
+        raise ValueError(f"Circular reference detected: {name}")
     if name not in tokens:
         raise ValueError(f"Missing token: {name}")
-    return tokens[name]
+    
+    value = tokens[name]
+    
+    # Check if value is a var(...) reference
+    match = re.match(r"var\(\s*(--[a-z0-9\-]+)\s*\)", value)
+    if match:
+        return resolve_token(match.group(1), depth + 1)
+    
+    return value
 
 def hex_to_luminance(hex_color):
     value = hex_color.lstrip("#")
@@ -45,9 +57,9 @@ def contrast_ratio(color_a, color_b):
     light, dark = sorted((lum_a, lum_b), reverse=True)
     return (light + 0.05) / (dark + 0.05)
 
-background = token("--color-background")
+background = resolve_token("--color-background")
 for text_token in ("--color-text", "--color-text-alt"):
-    text_value = token(text_token)
+    text_value = resolve_token(text_token)
     ratio = contrast_ratio(background, text_value)
     status = "PASS" if ratio >= 4.5 else "FAIL"
     print(f"{text_token} ({text_value}) on --color-background ({background}): {ratio:.2f}:1 [{status}]")
