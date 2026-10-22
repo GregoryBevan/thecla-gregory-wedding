@@ -7,8 +7,10 @@ const translations = {
   en: {
     metaDescription: "A warm, elegant wedding website for Thecla and Grégory.",
     skipLink: "Skip to content",
+    navAriaLabel: "Primary",
     brandAriaLabel: "Thecla and Grégory wedding website",
     navToggle: "Toggle navigation menu",
+    heroSummaryAriaLabel: "Wedding summary",
     navStory: "Story",
     navCelebration: "Celebration",
     navDetails: "Details",
@@ -43,8 +45,10 @@ const translations = {
   fr: {
     metaDescription: "Un site de mariage chaleureux et élégant pour Thecla et Grégory.",
     skipLink: "Aller au contenu",
+    navAriaLabel: "Principale",
     brandAriaLabel: "Site de mariage de Thecla et Grégory",
     navToggle: "Ouvrir le menu de navigation",
+    heroSummaryAriaLabel: "Résumé du mariage",
     navStory: "Histoire",
     navCelebration: "Célébration",
     navDetails: "Détails",
