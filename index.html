@@ -7,6 +7,7 @@
     <meta
       name="description"
       content="A warm, elegant wedding website for Thecla and Grégory."
+      data-i18n="metaDescription"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,13 +18,13 @@
     <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body class="frame-style-ornate">
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content" data-i18n-key="skipLink">Skip to content</a>
 
     <div class="page-shell">
       <header class="site-header">
         <div class="container header-inner">
           <div class="header-top">
-            <a class="brand" href="#top" aria-label="Thecla and Grégory wedding website">
+            <a class="brand" href="#top" aria-label="Thecla and Grégory wedding website" data-i18n-aria="brandAriaLabel">
               <span class="brand-name">Thecla</span>
               <span class="brand-separator">&amp;</span>
               <span class="brand-name">Grégory</span>
@@ -34,6 +35,7 @@
               aria-expanded="false"
               aria-controls="primary-nav-list"
               aria-label="Toggle navigation menu"
+              data-i18n-aria="navToggle"
             >
               <span aria-hidden="true">&#9776;</span>
               <span class="sr-only">Toggle navigation menu</span>
@@ -42,16 +44,16 @@
           <nav class="site-nav" aria-label="Primary">
             <ul class="nav-list" id="primary-nav-list">
               <li>
-                <a href="#story"><span class="nav-icon" aria-hidden="true">&#10022;</span>Story</a>
+                <a href="#story"><span class="nav-icon" aria-hidden="true">&#10022;</span><span data-i18n-key="navStory">Story</span></a>
               </li>
               <li>
-                <a href="#celebration"><span class="nav-icon" aria-hidden="true">&#10043;</span>Celebration</a>
+                <a href="#celebration"><span class="nav-icon" aria-hidden="true">&#10043;</span><span data-i18n-key="navCelebration">Celebration</span></a>
               </li>
               <li>
-                <a href="#details"><span class="nav-icon" aria-hidden="true">&#9432;</span>Details</a>
+                <a href="#details"><span class="nav-icon" aria-hidden="true">&#9432;</span><span data-i18n-key="navDetails">Details</span></a>
               </li>
               <li>
-                <a href="#rsvp"><span class="nav-icon" aria-hidden="true">&#10084;</span>RSVP</a>
+                <a href="#rsvp"><span class="nav-icon" aria-hidden="true">&#10084;</span><span data-i18n-key="navRsvp">RSVP</span></a>
               </li>
             </ul>
           </nav>
@@ -62,8 +64,8 @@
         <section class="hero" id="top" aria-labelledby="hero-title">
           <div class="container hero-grid">
             <div class="hero-copy">
-              <h1 id="hero-title">We're getting married</h1>
-              <p class="hero-text">
+              <h1 id="hero-title" data-i18n-key="heroTitle">We're getting married</h1>
+              <p class="hero-text" data-i18n-key="heroText">
                 We're so happy to celebrate with you. Find the schedule, venue details,
                 travel notes, and RSVP updates here.
               </p>
@@ -75,8 +77,8 @@
                   alt="Thecla and Grégory together"
                 />
               </figure>
-              <p class="card-value">Save the date<br>27th of March 2027</p>
-              <p class="card-copy">
+              <p class="card-value" data-i18n-key="saveTheDate">Save the date<br>27th of March 2027</p>
+              <p class="card-copy" data-i18n-key="heroCardCopy">
                 Ceremony, reception, travel notes, and timeline will live here as the
                 celebration takes shape.
               </p>
@@ -87,15 +89,15 @@
         <section class="section section-accent" id="story" aria-labelledby="story-title">
           <div class="container section-grid">
             <div>
-              <h2 id="story-title">Our story</h2>
+              <h2 id="story-title" data-i18n-key="storyTitle">Our story</h2>
             </div>
             <div class="section-copy">
-              <p>
+              <p data-i18n-key="storyParagraph1">
                 This section is ready for your story as a couple: how you met, what
                 brought you here, and the tone you want guests to feel from the first
                 scroll.
               </p>
-              <p>
+              <p data-i18n-key="storyParagraph2">
                 The layout stays spacious on desktop, easy to read on mobile, and
                 flexible for richer content later.
               </p>
@@ -105,19 +107,19 @@
 
         <section class="section" id="celebration" aria-labelledby="celebration-title">
           <div class="container">
-            <h2 id="celebration-title">Celebration flow</h2>
+            <h2 id="celebration-title" data-i18n-key="celebrationTitle">Celebration flow</h2>
             <div class="card-grid">
               <article class="info-card">
-                <h3>Ceremony</h3>
-                <p>A dedicated space for venue, arrival timing, and guest guidance.</p>
+                <h3 data-i18n-key="ceremonyTitle">Ceremony</h3>
+                <p data-i18n-key="ceremonyText">A dedicated space for venue, arrival timing, and guest guidance.</p>
               </article>
               <article class="info-card">
-                <h3>Reception</h3>
-                <p>Ideal for dinner plans, party highlights, and practical notes.</p>
+                <h3 data-i18n-key="receptionTitle">Reception</h3>
+                <p data-i18n-key="receptionText">Ideal for dinner plans, party highlights, and practical notes.</p>
               </article>
               <article class="info-card">
-                <h3>Travel</h3>
-                <p>Share transportation options, nearby stays, and practical arrival guidance.</p>
+                <h3 data-i18n-key="travelTitle">Travel</h3>
+                <p data-i18n-key="travelText">Share transportation options, nearby stays, and practical arrival guidance.</p>
               </article>
             </div>
           </div>
@@ -125,23 +127,23 @@
 
         <section class="section section-accent" id="details" aria-labelledby="details-title">
           <div class="container">
-            <h2 id="details-title">Key details</h2>
+            <h2 id="details-title" data-i18n-key="detailsTitle">Key details</h2>
             <div class="details-grid">
               <article class="detail-panel">
-                <h3>Schedule</h3>
-                <p>Outline the timeline from welcome to farewell in a clean, readable format.</p>
+                <h3 data-i18n-key="scheduleTitle">Schedule</h3>
+                <p data-i18n-key="scheduleText">Outline the timeline from welcome to farewell in a clean, readable format.</p>
               </article>
               <article class="detail-panel">
-                <h3>Venue guide</h3>
-                <p>Add maps, directions, accessibility notes, and where guests should go first.</p>
+                <h3 data-i18n-key="venueTitle">Venue guide</h3>
+                <p data-i18n-key="venueText">Add maps, directions, accessibility notes, and where guests should go first.</p>
               </article>
               <article class="detail-panel">
-                <h3>Dress code</h3>
-                <p>Share the style of the day and any weather-specific recommendations.</p>
+                <h3 data-i18n-key="dressCodeTitle">Dress code</h3>
+                <p data-i18n-key="dressCodeText">Share the style of the day and any weather-specific recommendations.</p>
               </article>
               <article class="detail-panel">
-                <h3>FAQ</h3>
-                <p>Reserve this area for common questions, plus thoughtful guest reminders.</p>
+                <h3 data-i18n-key="faqTitle">FAQ</h3>
+                <p data-i18n-key="faqText">Reserve this area for common questions, plus thoughtful guest reminders.</p>
               </article>
             </div>
           </div>
@@ -150,9 +152,9 @@
         <section class="section section-highlight" id="rsvp" aria-labelledby="rsvp-title">
           <div class="container rsvp-panel">
             <div>
-              <h2 id="rsvp-title">R.S.V.P.</h2>
+              <h2 id="rsvp-title" data-i18n-key="rsvpTitle">R.S.V.P.</h2>
             </div>
-            <p>
+            <p data-i18n-key="rsvpText">
               Your physical invitation includes a QR code that connects you to our digital guest experience through dywy. Simply scan the code to request your personalized magic link, then log in to complete your RSVP.
             <br>
             <br>
@@ -165,7 +167,7 @@
       <footer class="site-footer">
         <div class="container footer-inner">
           <p>Thecla &amp; Grégory</p>
-          <p>Made with love for a joyful celebration.</p>
+          <p data-i18n-key="footerText">Made with love for a joyful celebration.</p>
         </div>
       </footer>
     </div>
