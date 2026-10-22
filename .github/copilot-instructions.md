@@ -10,6 +10,7 @@
 - Use a gitmoji-based commit message when committing staged work, following the format: `type(#issue_number): <gitmoji> <short description>`.
 - Use the number of the exact issue being worked, not the parent umbrella issue. For the current responsive layout work, use issue `#2`.
 - Example commit messages: `feat(#2): ✨ create mobile-first layout skeleton`, `fix(#2): 🩹 improve header contrast`, `chore(#3): 🧹 add project guidance rules`.
+- Do not commit or push changes to the repository; leave that to Gregory.
 
 ## Design guidance
 
