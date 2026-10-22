@@ -92,11 +92,16 @@ const rsvpSection = document.querySelector("#rsvp");
 const desktopMediaQuery = window.matchMedia("(min-width: 72rem)");
 
 function detectPreferredLanguage() {
-  const navigatorLanguage = navigator.language || navigator.languages?.[0] || FALLBACK_LANGUAGE;
-  const normalizedLanguage = navigatorLanguage.toLowerCase().split("-")[0];
+  const preferredLanguages = navigator.languages?.length
+    ? navigator.languages
+    : [navigator.language || FALLBACK_LANGUAGE];
 
-  if (SUPPORTED_LANGUAGES.includes(normalizedLanguage)) {
-    return normalizedLanguage;
+  for (const language of preferredLanguages) {
+    const normalizedLanguage = (language || FALLBACK_LANGUAGE).toLowerCase().split("-")[0];
+
+    if (SUPPORTED_LANGUAGES.includes(normalizedLanguage)) {
+      return normalizedLanguage;
+    }
   }
 
   return FALLBACK_LANGUAGE;
