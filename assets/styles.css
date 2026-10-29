@@ -27,6 +27,11 @@
   --color-accent-soft: #d9dfd7;
   --color-panel-soft: var(--color-invitation-mist);
   --color-blush: #e6ebe4;
+  --color-palette-1: #b7bec8;
+  --color-palette-2: #8ea4bb;
+  --color-palette-3: #d9c8cc;
+  --color-palette-4: #43546d;
+  --color-palette-5: #ead7d7;
   --font-family-body: "Inter", sans-serif;
   --font-family-display: "Cormorant Garamond", serif;
   --font-family-brand: "Qwitcher Grypen", "Great Vibes", "Cormorant Garamond", serif;
@@ -552,16 +557,88 @@ html:not(.has-js) .nav-toggle {
   color: var(--color-text-muted);
 }
 
-.eyebrow,
-.card-label {
-  margin: 0;
-  font-size: var(--font-size-eyebrow);
+.detail-panel p a {
+  display: inline-block;
+  padding-block: 0.25rem;
+  color: var(--color-accent-strong);
   font-weight: 600;
-  letter-spacing: var(--letter-spacing-eyebrow);
-  text-transform: uppercase;
+  text-decoration-thickness: 0.0625rem;
+  text-underline-offset: 0.2em;
 }
 
+.detail-panel p a:hover {
+  text-decoration-thickness: 0.125rem;
+}
 
+.detail-panel p a:focus-visible {
+  outline: 0.1875rem solid var(--color-accent-strong);
+  outline-offset: 0.125rem;
+}
+
+.palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-bottom: var(--space-sm);
+}
+
+.palette-swatch {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--color-line);
+  border-radius: 50%;
+}
+
+.palette-swatch:nth-child(1) { background: var(--color-palette-1); }
+.palette-swatch:nth-child(2) { background: var(--color-palette-2); }
+.palette-swatch:nth-child(3) { background: var(--color-palette-3); }
+.palette-swatch:nth-child(4) { background: var(--color-palette-4); }
+.palette-swatch:nth-child(5) { background: var(--color-palette-5); }
+
+.schedule-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  padding-block: var(--space-xs);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.schedule-item:last-child {
+  border-bottom: 0;
+}
+
+.schedule-item strong {
+  min-width: 5.5rem;
+  font-family: var(--font-family-display);
+  font-size: 1.5rem;
+  line-height: 1.1;
+  color: var(--color-accent-strong);
+}
+
+/* Map links get a pin icon; other links get an arrow. */
+.detail-panel p a[href*="google.com/maps"]::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.35em;
+  vertical-align: -0.15em;
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.detail-panel p a:not([href*="google.com/maps"]) {
+  font-size: 0.9em;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.detail-panel p a:not([href*="google.com/maps"])::after {
+  content: "\2192";
+  display: inline-block;
+  margin-left: 0.35em;
+}
 
 .button {
   font-weight: 600;
@@ -865,9 +942,12 @@ html:not(.has-js) .nav-toggle {
   }
 
   .details-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+
+
 
 
 
